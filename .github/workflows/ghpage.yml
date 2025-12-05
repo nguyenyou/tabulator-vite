@@ -20,14 +20,14 @@ jobs:
         with:
             node-version: 24
       - run: |
-          bun install
+          npm install
 
       - name: Setup Pages
         id: setup_pages
         uses: actions/configure-pages@v5
 
       - name: Build Vite
-        run: bun run build
+        run: npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
       

@@ -98,8 +98,8 @@ def initializeApp(): Unit = {
   js.Dynamic.global.testTable = table
 }
 class MyClass {
-  // var rootNode: L.RootNode =
-  //   scala.compiletime.uninitialized
+  var rootNode: L.RootNode =
+    scala.compiletime.uninitialized
 }
 
 @main
