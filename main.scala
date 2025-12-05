@@ -100,10 +100,16 @@ def initializeApp(): Unit = {
 class MyClass {
   var rootNode: L.RootNode =
     scala.compiletime.uninitialized
+
+  def apply(container: dom.Element) = {
+    rootNode = L.render(container, div("Hello, world!"))
+  }
 }
 
 @main
 def run(): Unit = {
+  val container = dom.document.getElementById("app")
+  L.render(container, div("Hello, world!"))
   val x = MyClass()
   println(x)
   // Initialize when DOM is ready
