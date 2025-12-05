@@ -909,6 +909,18 @@ var $d_J = new $TypeData().initPrim(null, "J", "long", $ac_J, (void 0));
 var $d_F = new $TypeData().initPrim(0.0, "F", "float", $ac_F, Float32Array);
 var $d_D = new $TypeData().initPrim(0.0, "D", "double", $ac_D, Float64Array);
 /** @constructor */
+function $c_LMyClass() {
+}
+$c_LMyClass.prototype = new $h_O();
+$c_LMyClass.prototype.constructor = $c_LMyClass;
+/** @constructor */
+function $h_LMyClass() {
+}
+$h_LMyClass.prototype = $c_LMyClass.prototype;
+var $d_LMyClass = new $TypeData().initClass($c_LMyClass, "MyClass", ({
+  LMyClass: 1
+}));
+/** @constructor */
 function $c_jl_System$Streams$() {
   this.jl_System$Streams$__f_out = null;
   this.jl_System$Streams$__f_err = null;
@@ -1032,6 +1044,10 @@ $c_Lmain$package$.prototype.initializeApp__V = (function() {
   testTable = table;
 });
 $c_Lmain$package$.prototype.run__V = (function() {
+  var x = new $c_LMyClass();
+  var this$2 = $m_s_Console$();
+  var this$3 = $n(this$2.out__Ljava_io_PrintStream());
+  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
   if (($as_T(document.readyState) === "loading")) {
     document.addEventListener("DOMContentLoaded", ((_$1) => {
       $m_Lmain$package$().initializeApp__V();

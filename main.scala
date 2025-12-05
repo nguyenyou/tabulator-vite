@@ -6,6 +6,7 @@
 
 import org.scalajs.dom
 import com.raquo.laminar.api.L.*
+import com.raquo.laminar.api.L
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSImport
 
@@ -96,10 +97,17 @@ def initializeApp(): Unit = {
   // Make table globally available for testing/debugging
   js.Dynamic.global.testTable = table
 }
+class MyClass {
+  // var rootNode: L.RootNode =
+  //   scala.compiletime.uninitialized
+}
 
 @main
 def run(): Unit = {
+  val x = MyClass()
+  println(x)
   // Initialize when DOM is ready
+  // val x = Option(1).orNull
   if (dom.document.readyState == "loading") {
     dom.document.addEventListener(
       "DOMContentLoaded",
