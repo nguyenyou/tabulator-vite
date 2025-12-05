@@ -27,6 +27,9 @@ function initializeApp() {
 		columns: columns,
 		layout: "fitColumns",
 	});
+
+	// Make table globally available for testing/debugging
+	window.testTable = table;
 }
 
 // Initialize when DOM is ready
