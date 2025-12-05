@@ -1,25 +1,37 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
 import "./tabulator.css"
+import Tabulator from './tabulator/core/TabulatorFull.js'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Initialize the app
+function initializeApp() {
+	// Test data
+	const testData = [
+		{ id: 1, name: "Alice", age: 25, gender: "Female" },
+		{ id: 2, name: "Bob", age: 32, gender: "Male" },
+		{ id: 3, name: "Charlie", age: 45, gender: "Male" },
+		{ id: 4, name: "Diana", age: 27, gender: "Female" },
+		{ id: 5, name: "Ethan", age: 35, gender: "Male" },
+	];
 
-setupCounter(document.querySelector('#counter'))
+	// Column definitions
+	const columns = [
+		{ title: "ID", field: "id", sorter: "number" },
+		{ title: "Name", field: "name", sorter: "string" },
+		{ title: "Age", field: "age", sorter: "number" },
+		{ title: "Gender", field: "gender", sorter: "string" },
+	];
+
+	// Initialize Tabulator table directly in #app
+	const table = new Tabulator("#app", {
+		data: testData,
+		columns: columns,
+		layout: "fitColumns",
+	});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+	initializeApp();
+}
