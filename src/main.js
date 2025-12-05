@@ -2,7 +2,7 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
-import "./tabulator/scss/tabulator.scss"
+import "./tabulator.css"
 
 document.querySelector('#app').innerHTML = `
   <div>
