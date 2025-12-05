@@ -101,8 +101,9 @@ class MyClass {
   var rootNode: L.RootNode =
     scala.compiletime.uninitialized
 
-  def apply(container: dom.Element) = {
+  def apply(container: dom.Element): L.RootNode = {
     rootNode = L.render(container, div("Hello, world!"))
+    rootNode
   }
 }
 
@@ -111,7 +112,8 @@ def run(): Unit = {
   val container = dom.document.getElementById("app")
   L.render(container, div("Hello, world!"))
   val x = MyClass()
-  println(x)
+  val root = x(container)
+  println(root)
   // Initialize when DOM is ready
   // val x = Option(1).orNull
   if (dom.document.readyState == "loading") {

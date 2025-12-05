@@ -997,6 +997,7 @@ var $d_F = new $TypeData().initPrim(0.0, "F", "float", $ac_F, Float32Array);
 var $d_D = new $TypeData().initPrim(0.0, "D", "double", $ac_D, Float64Array);
 /** @constructor */
 function $c_LMyClass() {
+  this.LMyClass__f_rootNode = null;
 }
 $c_LMyClass.prototype = new $h_O();
 $c_LMyClass.prototype.constructor = $c_LMyClass;
@@ -1004,6 +1005,16 @@ $c_LMyClass.prototype.constructor = $c_LMyClass;
 function $h_LMyClass() {
 }
 $h_LMyClass.prototype = $c_LMyClass.prototype;
+$c_LMyClass.prototype.apply__Lorg_scalajs_dom_Element__Lcom_raquo_laminar_nodes_RootNode = (function(container) {
+  $n($m_Lcom_raquo_laminar_api_package$().Lcom_raquo_laminar_api_package$__f_L);
+  var $x_2 = $n($n($m_Lcom_raquo_laminar_api_package$().Lcom_raquo_laminar_api_package$__f_L).div__Lcom_raquo_laminar_tags_HtmlTag());
+  var $x_1 = $m_sr_ScalaRunTime$();
+  var this$1 = $n($m_Lcom_raquo_laminar_api_package$().Lcom_raquo_laminar_api_package$__f_L);
+  var r = $m_Lcom_raquo_laminar_modifiers_RenderableText$().Lcom_raquo_laminar_modifiers_RenderableText$__f_stringRenderable;
+  var rootNode = $x_2.apply__sci_Seq__Lcom_raquo_laminar_nodes_ReactiveHtmlElement($x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Lcom_raquo_laminar_modifiers_Modifier.getArrayOf().constr)([$f_Lcom_raquo_laminar_api_Implicits__textToTextNode__O__Lcom_raquo_laminar_modifiers_RenderableText__Lcom_raquo_laminar_nodes_TextNode(this$1, "Hello, world!", r)])));
+  this.LMyClass__f_rootNode = new $c_Lcom_raquo_laminar_nodes_RootNode(container, rootNode);
+  return this.LMyClass__f_rootNode;
+});
 var $d_LMyClass = new $TypeData().initClass($c_LMyClass, "MyClass", ({
   LMyClass: 1
 }));
@@ -2937,9 +2948,10 @@ $c_Lmain$package$.prototype.run__V = (function() {
   var rootNode = $x_2.apply__sci_Seq__Lcom_raquo_laminar_nodes_ReactiveHtmlElement($x_1.wrapRefArray__AO__sci_ArraySeq(new ($d_Lcom_raquo_laminar_modifiers_Modifier.getArrayOf().constr)([$f_Lcom_raquo_laminar_api_Implicits__textToTextNode__O__Lcom_raquo_laminar_modifiers_RenderableText__Lcom_raquo_laminar_nodes_TextNode(this$1, "Hello, world!", r)])));
   new $c_Lcom_raquo_laminar_nodes_RootNode(container, rootNode);
   var x = new $c_LMyClass();
+  var root = x.apply__Lorg_scalajs_dom_Element__Lcom_raquo_laminar_nodes_RootNode(container);
   var this$4 = $m_s_Console$();
   var this$5 = $n(this$4.out__Ljava_io_PrintStream());
-  this$5.java$lang$JSConsoleBasedPrintStream$$printString__T__V((x + "\n"));
+  this$5.java$lang$JSConsoleBasedPrintStream$$printString__T__V((root + "\n"));
   if (($as_T(document.readyState) === "loading")) {
     document.addEventListener("DOMContentLoaded", ((_$1) => {
       $m_Lmain$package$().initializeApp__V();
